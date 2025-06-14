@@ -15,7 +15,6 @@ import {NgOptimizedImage} from '@angular/common';
     RouterLink,
     NgOptimizedImage
   ],
-  providers: [ProgramService],
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.scss']
 })

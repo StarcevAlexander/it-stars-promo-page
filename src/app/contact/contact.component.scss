@@ -1,0 +1,40 @@
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+  padding: 1.25rem;
+
+  &.active {
+    background-color: rgba(13, 110, 253, 0.1);
+    border-color: rgba(0, 0, 0, .125);
+    color: inherit;
+  }
+}
+
+.bi {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.card {
+  border-radius: 12px !important;
+}
+
+iframe {
+  border-radius: inherit;
+  display: block;
+}

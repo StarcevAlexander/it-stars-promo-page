@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ProgramsData} from "./program.model";
 
-@Injectable()
+@Injectable({providedIn: "root"})
 export class ProgramService {
   constructor(private http: HttpClient) {
   }

@@ -1,1 +1,73 @@
-<p>contact works!</p>
+<div class="container py-5">
+  <h1 class="text-center mb-5">Наши контакты</h1>
+
+  <div class="row g-4">
+    <!-- Блок контактов -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="h4 card-title mb-4">Адреса и контакты</h2>
+
+          <div class="list-group">
+            @for (contact of contacts; track contact.city) {
+              <button
+                class="list-group-item list-group-item-action"
+                [class.active]="activeLocation === contact"
+                (click)="activeLocation = contact">
+                <h3 class="h5">{{ contact.city }}</h3>
+                <p class="mb-1">{{ contact.address }}</p>
+              </button>
+            }
+          </div>
+
+          <div class="mt-4">
+            <h3 class="h5">{{ activeLocation.city }}</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                {{ activeLocation.address }}
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-telephone-fill text-primary me-2"></i>
+                <a href="tel:{{ activeLocation.phone }}" class="text-decoration-none">
+                  {{ activeLocation.phone }}
+                </a>
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope-fill text-primary me-2"></i>
+                <a href="mailto:{{ activeLocation.email }}" class="text-decoration-none">
+                  {{ activeLocation.email }}
+                </a>
+              </li>
+              <li>
+                <i class="bi bi-telegram text-primary me-2"></i>
+                <a href="https://t.me/{{ activeLocation.telegram }}"
+                   target="_blank"
+                   class="text-decoration-none">
+                  {{ activeLocation.telegram }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Блок карты -->
+    <div class="col-lg-8">
+      <div class="card shadow-sm h-100 overflow-hidden">
+        <div class="card-body p-0 rounded-3">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3Accd5de2188e7e7920697a93d7ef9bfdcc504d48c402dcf84e1788073dd2d17c4&amp;source=constructor"
+            width="100%"
+            height="100%"
+            style="border: none;"
+            allowfullscreen
+            loading="lazy"
+            title="Яндекс Карта">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
