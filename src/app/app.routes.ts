@@ -15,6 +15,10 @@ export const routes: Routes = [
     loadComponent: () => import('./programs/programs.component').then(c => c.ProgramsComponent)
   },
   {
+    path: 'programs/:id',
+    loadComponent: () => import('./program-card/program-card.component').then(m => m.ProgramCardComponent)
+  },
+  {
     path: 'schedule',
     loadComponent: () => import('./schedule/schedule.component').then(c => c.ScheduleComponent)
   },
@@ -34,8 +38,8 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./contact/contact.component').then(c => c.ContactComponent)
   },
-  {
-    path: '**',
-    redirectTo: ''
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: ''
+  // }
 ];

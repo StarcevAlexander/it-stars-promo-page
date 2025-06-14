@@ -1,1 +1,86 @@
-<p>programs works!</p>
+<div class="container my-5">
+  <!-- Описание -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img
+        [src]="'assets/images/about-us.jpg'"
+        alt="Дети изучают программирование"
+        class="img-fluid rounded shadow-sm"
+        width="1920"
+        height="1080"
+      />
+    </div>
+    <div class="col-md-6">
+      <h1>Наши учебные программы</h1>
+      <p>Комплексные модули обучения, разработанные экспертами для разных возрастных групп:</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="bi bi-code-square text-primary me-2"></i> Основы алгоритмического мышления
+        </li>
+        <li class="list-group-item"><i class="bi bi-robot text-primary me-2"></i> Создание игр и анимаций</li>
+        <li class="list-group-item"><i class="bi bi-globe text-primary me-2"></i> Веб-разработка для начинающих</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Миссия -->
+  <div class="bg-light p-4 rounded mb-5">
+    <h3>Методика обучения</h3>
+    <p>Наши модули построены по принципу "от простого к сложному": каждый курс включает практические проекты, работу в
+      команде и индивидуальные задания. Мы используем современные образовательные платформы и авторские методики.</p>
+  </div>
+
+  <!-- Учебные модули -->
+  <div class="mb-5">
+    <h2 class="text-center mb-4">Наши основные курсы</h2>
+    <div class="row g-4">
+      <div class="mb-5">
+        <div class="row g-4">
+          @for (module of visibleModules(); track module.name) {
+            <a [routerLink]="['/programs', module.id]" class="col-sm-6 col-md-4 col-lg-3 d-flex">
+              <div class="card flex-fill h-100 p-1">
+                <div class="card-img-container">
+                  <img
+                    [ngSrc]="module.image"
+                    [alt]="module.name"
+                    class="card-img-top"
+                    fill/>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ module.name }}</h5>
+                  <p class="card-text text-muted small">{{ module.descriptionMin }}</p>
+                  <div class="mt-auto d-flex justify-content-between">
+                    <span class="badge bg-primary">Занятий: {{ module.totalClasses }}</span>
+                    <span class="badge bg-secondary ms-2">{{ module.totalDuration }}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Кнопка "Показать ещё" или "В начало" -->
+    <div class="text-center mt-4">
+      @if (visibleModules().length < allModules().length) {
+        <button
+          class="btn btn-outline-primary"
+          (click)="loadMore()">
+          Показать ещё
+          <span class="ms-2">({{ allModules().length - visibleModules().length }} осталось)</span>
+        </button>
+      } @else {
+        <button
+          class="btn btn-outline-secondary"
+          (click)="scrollToTop()">
+          <i class="bi bi-arrow-up-circle"></i> В начало
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Форма обратной связи -->
+  <div class="text-center mb-2">
+    <a routerLink="/contact" class="btn btn-primary btn-lg">Записаться на пробный урок</a>
+  </div>
+</div>
