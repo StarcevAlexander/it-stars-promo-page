@@ -1,5 +1,88 @@
-@if (id()) {
-  <div>
-    <h2>{{ id() }}</h2>
+<div class="container my-5">
+  <!-- Основной контент в две колонки -->
+  <div class="row g-4 g-lg-5 mb-4 align-items-stretch"> <!-- Добавлен align-items-stretch -->
+    <!-- Колонка с изображением -->
+    <div class="col-lg-6 d-flex"> <!-- Добавлен d-flex -->
+      <div class="position-relative rounded-4 overflow-hidden shadow-lg bg-light p-3 w-100 d-flex flex-column"> <!-- Добавлены flex-классы -->
+        <div class="flex-grow-1 d-flex align-items-center"> <!-- Растягиваемый контейнер -->
+          <img
+            [src]="program()?.image || 'assets/images/about-us.jpg'"
+            [alt]="program()?.name || 'Дети изучают программирование'"
+            class="img-fluid w-100"
+            style="object-fit: contain; max-height: 100%; display: block;"
+            loading="lazy"
+          />
+        </div>
+        <div class="position-absolute top-0 start-0 p-3 bg-dark bg-opacity-50 text-white w-100">
+          <h3 class="h5 mb-0 text-center">{{ program()?.name || 'Практико-ориентированное обучение' }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Колонка с информацией о программе -->
+    <div class="col-lg-6">
+      <!-- Остальной код остается без изменений -->
+      <div class="h-100 d-flex flex-column">
+        <span class="badge bg-primary mb-3 align-self-start">Образовательная программа</span>
+
+        <div class="mb-4">
+          <h2 class="fw-bold mb-3 text-center text-lg-start">{{ program()?.name || 'Наши учебные программы' }}</h2>
+          <p class="lead text-center text-lg-start">{{ program()?.descriptionMin || 'Комплексные модули обучения, разработанные экспертами' }}</p>
+        </div>
+
+        <div class="mt-auto">
+          <div class="row g-3">
+            <a [routerLink]="'/programs'">
+              <button class="btn btn-primary w-100 mt-4 px-4 py-3">
+                <i class="bi bi-arrow-left ms-2"></i>
+                К списку
+              </button>
+            </a>
+
+            <div class="col-md-6">
+              <div class="d-flex align-items-center justify-content-between bg-light rounded-3 p-3 h-100">
+                <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-3 me-3 p-2 flex-shrink-0">
+                  <i class="bi bi-calendar-check fs-4"></i>
+                </div>
+                <div>
+                  <h3 class="h5 mb-1 text-end">Время</h3>
+                  <p class="mb-0 small text-muted">{{ program()?.totalDuration || 'Индивидуальный график' }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex align-items-center justify-content-between bg-light rounded-3 p-3 h-100">
+                <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-3 me-3 p-2 flex-shrink-0">
+                  <i class="bi bi-book fs-4"></i>
+                </div>
+                <div>
+                  <h3 class="h5 mb-1 text-end">Занятий</h3>
+                  <p class="mb-0 small text-muted text-end">
+                    количество: {{ program()?.totalClasses || 'Разное количество' }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary w-100 mt-4 px-4 py-3">
+            Записаться на курс <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-}
+
+  <!-- Полное описание под двумя колонками -->
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4 p-lg-5">
+          <h3 class="h4 mb-4">Подробнее о программе</h3>
+          <div class="text-muted w-100 lh-lg" style="text-align: justify; hyphens: auto;"
+               [innerHTML]="program()?.descriptionMax || 'Подробное описание программы'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
