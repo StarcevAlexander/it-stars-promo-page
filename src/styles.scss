@@ -1,5 +1,6 @@
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap";
 @import "../src/assets/fonts/fonts.scss";
+
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -9,3 +10,26 @@ body {
 .extra-bold {
   font-weight: 800; /* Используем числовое значение */
 }
+
+// Импорт функций и переменных Bootstrap сначала
+@import "functions";
+@import "variables";
+@import "mixins";
+
+// Затем ваш кастомный код
+.container-lg {
+  max-width: 1040px;
+}
+
+.content {
+  padding-top: 72px;
+
+  @include media-breakpoint-down(md) {
+    padding-top: 64px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 56px;
+  }
+}
+

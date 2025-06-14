@@ -7,7 +7,7 @@ import {NgOptimizedImage} from "@angular/common";
   standalone: true,
   imports: [
     RouterLink,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

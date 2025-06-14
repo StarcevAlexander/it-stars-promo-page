@@ -1,3 +1,37 @@
+/* Глобальные стили (можно добавить в styles.scss) */
 .content {
-  padding-top: 60px;
+  padding-top: 60px; /* Отступ под хедером */
+  width: 100%;
+}
+
+.content-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1040px) {
+  .content-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-top: 56px; /* Меньший отступ для мобильных */
+  }
+  .content-container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-top: 48px;
+  }
+  .content-container {
+    padding: 0 8px;
+  }
 }
