@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "../src/assets/fonts/fonts.scss";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Для элементов, где нужен ExtraBold */
+.extra-bold {
+  font-weight: 800; /* Используем числовое значение */
+}
