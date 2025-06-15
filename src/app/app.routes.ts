@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'classes',
-    loadComponent: () => import('./schedule/schedule.component').then(c => c.ScheduleComponent)
+    loadComponent: () => import('./classes/classes.component').then(c => c.ClassesComponent)
   },
   {
     path: 'pricing',
