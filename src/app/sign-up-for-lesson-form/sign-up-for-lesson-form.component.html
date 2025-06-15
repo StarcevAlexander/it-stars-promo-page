@@ -1,0 +1,116 @@
+<div class="signup-card p-4 p-md-5 shadow-sm rounded-4 position-relative">
+  <!-- Сообщение об успехе -->
+  @if (formSubmitted) {
+    <div class="text-center py-4">
+      <!-- Кнопка закрытия (крестик) -->
+      <button
+        type="button"
+        class="btn-close position-absolute top-0 end-0 m-3"
+        (click)="resetForm()"
+        aria-label="Закрыть"
+      ></button>
+
+      <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+      <h3 class="fw-bold mt-3 mb-2">Спасибо за заявку!</h3>
+      <p class="text-muted mb-4">
+        Мы получили ваш номер и свяжемся с вами для уточнения деталей
+      </p>
+      <div class="alert alert-light border small d-flex align-items-center justify-content-center gap-2">
+        <i class="bi bi-info-circle-fill text-primary"></i>
+        Проверьте, чтобы телефон был доступен
+      </div>
+
+      <!-- Дополнительная кнопка "Закрыть" -->
+      <button
+        type="button"
+        class="btn btn-outline-primary mt-3"
+        (click)="resetForm()"
+      >
+        ОК
+      </button>
+    </div>
+  } @else {
+    <form (ngSubmit)="onSubmit()" #phoneForm="ngForm" class="signup-form position-relative">
+      <!-- Кнопка закрытия (крестик) в форме -->
+      <button
+        type="button"
+        class="btn-close position-absolute top-0 end-0 m-1"
+        (click)="resetForm()"
+        aria-label="Закрыть"
+      ></button>
+
+      <!-- Заголовок -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold mb-3">Запишитесь <br/> на пробный урок!</h2>
+        <p class="lead text-muted">
+          Оставьте номер телефона и мы подберём удобное время для знакомства
+        </p>
+      </div>
+
+      <!-- Поле телефона -->
+      <div class="mb-4">
+        <label for="phoneNumber" class="form-label fw-medium">Ваш номер телефона*</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+          <input
+            type="tel"
+            inputmode="tel"
+            class="form-control py-3"
+            id="phoneNumber"
+            name="phoneNumber"
+            [(ngModel)]="phoneNumber"
+            placeholder="8 (___) ___-__-__"
+            required
+            minlength="11"
+            maxlength="11"
+            #phoneInput="ngModel"
+            (input)="onPhoneInput($event)"
+            (keypress)="onPhoneKeyPress($event)"
+          />
+        </div>
+        @if (phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)) {
+          <div class="text-danger mt-2 small">
+            @if (phoneInput.errors?.['required']) {
+              <div><i class="bi bi-exclamation-circle me-1"></i>Пожалуйста, укажите номер телефона</div>
+            }
+            @if (phoneInput.errors?.['minlength']) {
+              <div><i class="bi bi-exclamation-circle me-1"></i>Номер должен содержать минимум 11 цифр</div>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Чекбокс согласия -->
+      <div class="form-check mb-4">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="agreeCheck"
+          [(ngModel)]="agreeChecked"
+          name="agreeCheck"
+          required
+        />
+        <label class="form-check-label small" for="agreeCheck">
+          Я согласен на обработку персональных данных
+        </label>
+      </div>
+
+      <!-- Кнопка -->
+      <button
+        type="submit"
+        class="btn btn-primary w-100 py-3 fw-bold"
+        [disabled]="phoneForm.invalid"
+      >
+        @if (!isLoading) {
+          <span>Записаться сейчас <i class="bi bi-arrow-right ms-2"></i></span>
+        }
+        @if (isLoading) {
+          <span>
+      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      Отправка...
+    </span>
+        }
+      </button>
+    </form>
+  }
+</div>

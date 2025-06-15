@@ -1,1 +1,183 @@
-<p>pricing works!</p>
+<div class="container my-5">
+  <!-- Hero-секция с эмоциональным заголовком -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 mb-4 mb-md-0 order-md-2">
+      <img
+        [src]="'assets/images/about-us.jpg'"
+        alt="Дети успешно осваивают программирование"
+        class="img-fluid rounded shadow-sm"
+        width="1920"
+        height="1080"
+      />
+    </div>
+    <div class="col-md-6 order-md-1">
+      <h1 class="display-5 fw-bold mb-4">Инвестиция в будущее вашего ребёнка, которая окупится 1000%</h1>
+      <p class="lead text-muted mb-4">Программирование - самый востребованный навык XXI века. Начните осваивать его уже
+        сегодня!</p>
+
+      <!-- Срочный CTA -->
+      <div class="alert alert-success mb-4">
+        <i class="bi bi-lightning-charge-fill me-2"></i>
+        <strong>Ограниченное предложение:</strong> При оплате за 6 месяцев - месяц в подарок!
+      </div>
+
+<!--      &lt;!&ndash; Блок преимуществ &ndash;&gt;-->
+<!--      <div class="d-flex align-items-center mb-3">-->
+<!--        <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>-->
+<!--        <span>83% наших учеников побеждают в олимпиадах</span>-->
+<!--      </div>-->
+<!--      <div class="d-flex align-items-center mb-3">-->
+<!--        <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>-->
+<!--        <span>Средняя зарплата выпускников через 5 лет - 180,000 руб.</span>-->
+<!--      </div>-->
+    </div>
+  </div>
+
+  <!-- Карточки с ценностями -->
+  <div class="row g-4 mb-5">
+    <div class="col-md-4">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <i class="bi bi-people-fill text-primary fs-1 mb-3"></i>
+          <h4>Группы до 12 человек</h4>
+          <p>Индивидуальный подход к каждому ребенку</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-success">
+        <div class="card-body text-center">
+          <i class="bi bi-laptop text-success fs-1 mb-3"></i>
+          <h4>70+ профессиональных инструментов</h4>
+          <p>То, что реально используют разработчики</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-warning">
+        <div class="card-body text-center">
+          <i class="bi bi-award-fill text-warning fs-1 mb-3"></i>
+          <h4>Практикующие эксперты</h4>
+          <p>Преподаватели из IT-компаний</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Блок с ценами и гарантиями -->
+  <div class="row mb-5">
+    <div class="col-lg-6 mb-2">
+      <div class="card h-100 border-success">
+        <div class="card-header bg-success text-white">
+          <h3 class="mb-0 text-center">Выгодное предложение</h3>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li class="mb-3 d-flex align-items-center">
+              <i class="bi bi-calendar-check-fill text-primary fs-4 me-3"></i>
+              <div>
+                <strong class="fs-5">1,200 руб. за занятие</strong>
+                <div class="text-muted">4 занятия = 4,800 рублей/месяц</div>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center">
+              <i class="bi bi-gift-fill text-warning fs-4 me-3"></i>
+              <div>
+                <strong class="fs-5">Бонусная неделя</strong>
+                <div class="text-muted">Если в месяце 5 недель - дополнительное занятие в подарок</div>
+              </div>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="bi bi-people-fill text-success fs-4 me-3"></i>
+              <div>
+                <strong class="fs-5">Семейная скидка 10%</strong>
+                <div class="text-muted">Для второго и каждого последующего ребёнка</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-2">
+      <div class="card h-100 border-primary">
+        <div class="position-absolute top-0 start-0 translate-middle-y ms-3">
+          <span class="badge bg-danger rounded-pill">ТОПЧИК в {{ year }}</span>
+        </div>
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0 text-center">А ещё</h3>
+        </div>
+        <div class="card-body">
+          <div class="mb-4">
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-arrow-repeat text-info fs-4 me-3"></i>
+              <div>
+                <h5>Бесплатная отработка</h5>
+                <p class="mb-0">Все пропущенные занятия можно отработать без доплат</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-heart-fill" style="color: #ff6b9e; font-size: 1.5rem; margin-right: 1rem;"></i>
+              <div>
+                <h5>Атмосфера поддержки</h5>
+                <p class="mb-0">Наши педагоги создают комфортную среду для обучения</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-trophy-fill text-warning fs-4 me-3"></i>
+              <div>
+                <h5>Доказанные результаты</h5>
+                <p class="mb-0">83% учеников побеждают в олимпиадах и конкурсах</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Блок с отзывами/соц. доказательствами -->
+  <div class="bg-light p-5 rounded mb-5 position-relative">
+
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img
+          [src]="'assets/images/about-us.jpg'"
+          alt="Счастливые ученики на занятиях"
+          class="img-fluid rounded shadow-sm"
+          width="1920"
+          height="1080"
+        />
+      </div>
+      <div class="col-md-6">
+        <h3 class="mb-4">92% родителей рекомендуют нас друзьям</h3>
+        <div class="mb-4">
+          <div class="d-flex align-items-start mb-3">
+            <i class="bi bi-chat-square-quote-fill text-primary fs-3 me-3"></i>
+            <div>
+              <p class="fst-italic">"Мой сын за 3 месяца научился создавать игры, хотя до этого боялся компьютера!"</p>
+              <div class="text-end">— Марина, мама Артёма (9 лет)</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <i class="bi bi-chat-square-quote-fill text-primary fs-3 me-3"></i>
+            <div>
+              <p class="fst-italic">"Дочь теперь сама делает сайты и мечтает работать в IT. Спасибо за мотивацию!"</p>
+              <div class="text-end">— Ольга, мама Софии (11 лет)</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-info">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i>
+          <strong>Количество мест ограничено!</strong> Набор в группы закрывается по мере заполнения.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Финальный CTA -->
+  <div class="text-center p-5 bg-danger text-white rounded">
+    <h2 class="mb-4">Готовы дать ребёнку навыки будущего?</h2>
+    <p class="fs-5 mb-4">Оставьте заявку сейчас и получите бесплатный пробный урок!</p>
+    <app-send-button></app-send-button>
+  </div>
+</div>

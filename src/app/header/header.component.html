@@ -14,12 +14,12 @@
     <!-- Основное меню -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" routerLink="/about" routerLinkActive="active">О нас</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">О нас</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/programs" routerLinkActive="active">Программы</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/schedule" routerLinkActive="active">Расписание</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/pricing" routerLinkActive="active">Стоимость</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/testimonials" routerLinkActive="active">Отзывы</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/news" routerLinkActive="active">Новости</a></li>
+<!--        <li class="nav-item"><a class="nav-link" routerLink="/news" routerLinkActive="active">Новости</a></li>-->
         <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Контакты</a></li>
       </ul>
     </div>

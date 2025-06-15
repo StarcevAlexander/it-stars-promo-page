@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
-import {RouterLink} from "@angular/router";
 import {NgOptimizedImage} from "@angular/common";
+import {SendButtonComponent} from "../send-button/send-button.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink,
     NgOptimizedImage,
+    SendButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

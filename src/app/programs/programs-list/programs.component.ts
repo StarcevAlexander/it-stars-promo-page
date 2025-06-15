@@ -2,19 +2,21 @@ import {Component, effect, inject, signal, untracked} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs/operators';
-import {ProgramService} from './program.service';
-import {LearningModule} from './program.model';
+import {ProgramService} from '../program.service';
+import {LearningModule} from '../program.model';
 import {RouterLink} from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
+import {SendButtonComponent} from "../../send-button/send-button.component";
 
 @Component({
   selector: 'app-programs',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    NgOptimizedImage
-  ],
+    imports: [
+        CommonModule,
+        RouterLink,
+        NgOptimizedImage,
+        SendButtonComponent
+    ],
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.scss']
 })

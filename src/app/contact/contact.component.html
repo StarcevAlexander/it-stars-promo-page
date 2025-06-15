@@ -6,45 +6,41 @@
     <div class="col-lg-4">
       <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h2 class="h4 card-title mb-4">Адреса и контакты</h2>
+          <h2 class="h4 card-title mb-4 text-center">Адреса и контакты</h2>
 
           <div class="list-group">
-            @for (contact of contacts; track contact.city) {
+            @for (contact of contacts; track contact.coords) {
               <button
                 class="list-group-item list-group-item-action"
                 [class.active]="activeLocation === contact"
-                (click)="activeLocation = contact">
-                <h3 class="h5">{{ contact.city }}</h3>
-                <p class="mb-1">{{ contact.address }}</p>
+                (click)="changeLocation(contact)">
+                <h3 class="h5">{{ contact.address }}</h3>
+                <p class="mb-1">{{ contact.desc }}</p>
               </button>
             }
           </div>
 
           <div class="mt-4">
-            <h3 class="h5">{{ activeLocation.city }}</h3>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <i class="bi bi-geo-alt-fill text-primary me-2"></i>
-                {{ activeLocation.address }}
-              </li>
-              <li class="mb-2">
-                <i class="bi bi-telephone-fill text-primary me-2"></i>
-                <a href="tel:{{ activeLocation.phone }}" class="text-decoration-none">
-                  {{ activeLocation.phone }}
+                <i class="bi bi-telephone-fill text-danger me-2"></i>
+                <a href="tel:{{ activeLocation?.phone || contacts[0].phone}}" class="text-decoration-none text-danger">
+                  {{ activeLocation?.phone || contacts[0].phone }}
                 </a>
               </li>
               <li class="mb-2">
-                <i class="bi bi-envelope-fill text-primary me-2"></i>
-                <a href="mailto:{{ activeLocation.email }}" class="text-decoration-none">
-                  {{ activeLocation.email }}
+                <i class="bi bi-whatsapp text-success me-2"></i>
+                <a href="https://wa.me/{{  activeLocation?.whatsapp || contacts[0].whatsapp }}" target="_blank"
+                   class="text-decoration-none text-success">
+                  Написать в WhatsApp
                 </a>
               </li>
               <li>
                 <i class="bi bi-telegram text-primary me-2"></i>
-                <a href="https://t.me/{{ activeLocation.telegram }}"
+                <a href="https://t.me/{{ activeLocation?.telegram  || contacts[0].telegram}}"
                    target="_blank"
                    class="text-decoration-none">
-                  {{ activeLocation.telegram }}
+                  Написать в Telegram
                 </a>
               </li>
             </ul>
@@ -57,17 +53,24 @@
     <div class="col-lg-8">
       <div class="card shadow-sm h-100 overflow-hidden">
         <div class="card-body p-0 rounded-3">
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Accd5de2188e7e7920697a93d7ef9bfdcc504d48c402dcf84e1788073dd2d17c4&amp;source=constructor"
-            width="100%"
-            height="100%"
-            style="border: none;"
-            allowfullscreen
-            loading="lazy"
-            title="Яндекс Карта">
-          </iframe>
+          @if (!activeLocation) {
+            <!-- Статичная карта по умолчанию -->
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Accd5de2188e7e7920697a93d7ef9bfdcc504d48c402dcf84e1788073dd2d17c4&amp;source=constructor"
+              width="100%"
+              height="100%"
+              style="border: none; min-height: 500px;"
+              allowfullscreen
+              loading="lazy"
+              title="Яндекс Карта">
+            </iframe>
+          } @else {
+            <!-- Интерактивная карта с API -->
+            <div #mapContainer style="width: 100%; height: 100%; min-height: 500px;"></div>
+          }
         </div>
       </div>
     </div>
+
   </div>
 </div>

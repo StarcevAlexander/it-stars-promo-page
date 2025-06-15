@@ -1,0 +1,66 @@
+.signup-card {
+  background: white;
+  border: none;
+}
+
+.signup-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.benefits-list {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+}
+
+.modal-content {
+  border: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+  animation: bounceIn 0.5s;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .signup-card {
+    padding: 1.5rem !important;
+  }
+
+  .benefits-list {
+    padding: 1rem;
+  }
+}
+
+.btn-close {
+  box-shadow: none !important;
+}
+
+.btn-close:hover {
+  box-shadow: none !important;
+}
+
+/* Оставляем тень только для кнопки в сообщении об успехе (если нужно) */
+.text-center .btn-close {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
