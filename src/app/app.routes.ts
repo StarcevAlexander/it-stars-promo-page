@@ -14,7 +14,7 @@ export const routes: Routes = [
     loadComponent: () => import('./programs/program-card/program-card.component').then(m => m.ProgramCardComponent)
   },
   {
-    path: 'schedule',
+    path: 'classes',
     loadComponent: () => import('./schedule/schedule.component').then(c => c.ScheduleComponent)
   },
   {
