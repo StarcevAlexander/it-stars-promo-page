@@ -11,7 +11,7 @@
           <div class="list-group">
             @for (contact of contacts; track contact.coords) {
               <button
-                class="list-group-item list-group-item-action"
+                class="list-group-item list-group-item-action text-center"
                 [class.active]="activeLocation === contact"
                 (click)="changeLocation(contact)">
                 <h3 class="h5">{{ contact.address }}</h3>
@@ -21,17 +21,17 @@
           </div>
 
           <div class="mt-4">
-            <ul class="list-unstyled">
+            <ul class="list-unstyled text-center mb-0">
               <li class="mb-2">
                 <i class="bi bi-telephone-fill text-danger me-2"></i>
-                <a href="tel:{{ activeLocation?.phone || contacts[0].phone}}" class="text-decoration-none text-danger">
+                <a href="tel:{{ activeLocation?.phone || contacts[0].phone}}" class="bi text-decoration-none text-danger">
                   {{ activeLocation?.phone || contacts[0].phone }}
                 </a>
               </li>
               <li class="mb-2">
                 <i class="bi bi-whatsapp text-success me-2"></i>
                 <a href="https://wa.me/{{  activeLocation?.whatsapp || contacts[0].whatsapp }}" target="_blank"
-                   class="text-decoration-none text-success">
+                   class="bi text-decoration-none text-success">
                   Написать в WhatsApp
                 </a>
               </li>
@@ -39,7 +39,7 @@
                 <i class="bi bi-telegram text-primary me-2"></i>
                 <a href="https://t.me/{{ activeLocation?.telegram  || contacts[0].telegram}}"
                    target="_blank"
-                   class="text-decoration-none">
+                   class="bi text-decoration-none">
                   Написать в Telegram
                 </a>
               </li>
@@ -66,7 +66,7 @@
             </iframe>
           } @else {
             <!-- Интерактивная карта с API -->
-            <div #mapContainer style="width: 100%; height: 100%; min-height: 500px;"></div>
+            <div #mapContainer style="width: 100%; height: 500px; min-height: 500px;"></div>
           }
         </div>
       </div>
